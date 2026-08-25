@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز الأكواد والجوائز الرسمية</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background: #1a1a1a;
+            border: 2px solid #f39c12;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.2);
+        }
+        h1 {
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .btn-main {
+            background-color: #f39c12;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-main:hover {
+            background-color: #e67e22;
+            color: #fff;
+        }
+        .code-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #252525;
+            border: 1px dashed #f39c12;
+            border-radius: 8px;
+            display: none;
+        }
+        .code-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2ecc71;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        .btn-copy {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-copy:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>مركز توزيع مكافآت الألعاب</h1>
+        <p>اضغط على الزر أدناه للحصول على كود استرداد هدايا رسمي جديد</p>
+        
+        <button class="btn-main" onclick="generateCode()">عرض الكود المتاح</button>
+
+        <div id="codeBox" class="code-box">
+            <div id="codeDisplay" class="code-text"></div>
+            <button class="btn-copy" onclick="copyCode()">نسخ الكود</button>
+        </div>
+    </div>
+
+    <script>
+        const availableCodes = [
+            "GAME-REWARD-2026-X1",
+            "OFFICIAL-SKIN-PASS-99",
+            "BONUS-PACK-BOOST-07"
+        ];
+
+        function generateCode() {
+            const randomIndex = Math.floor(Math.random() * availableCodes.length);
+            const selectedCode = availableCodes[randomIndex];
+            
+            document.getElementById("codeDisplay").innerText = selectedCode;
+            document.getElementById("codeBox").style.display = "block";
+        }
+
+        function copyCode() {
+            const codeText = document.getElementById("codeDisplay").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert("تم نسخ الكود بنجاح!");
+            });
+        }
+    </script>
+
+</body>
+  </html>
+  
